@@ -19,15 +19,16 @@
   height: fit-content;
   padding: 5rem;
 
-  border: 2px var(--text-background-color) solid;
+  background-color: white;
   border-radius: 10px;
+  box-shadow: 5px 5px 30px rgb(7, 1, 46);
 }
 
 .dashboard-title p {
   font-size: 3.5rem;
   margin: 0;
   text-align: center;
-  color: white;
+  color: var(--color-primary-dark);
 }
 
 .whatsapp-logo {

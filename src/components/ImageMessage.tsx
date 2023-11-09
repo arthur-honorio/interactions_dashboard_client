@@ -1,11 +1,18 @@
+import whatsappIcon from "../img/logo.png";
 import style from "./ImageMessage.module.css";
 
-export function ImageMessage() {
+export function ImageMessage({
+  url,
+  name,
+}: {
+  url?: string | undefined;
+  name: string;
+}) {
   return (
-    <img
-      alt="img"
-      className={style["user-image"]}
-      src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f"
-    />
+    <div className={style["image-message-container"]}>
+      <img alt="" className={style["whatsapp-icon"]} src={whatsappIcon} />
+      <p className={style["user-name"]}>{name}</p>
+      <img alt="img" className={style["user-image"]} src={url} />
+    </div>
   );
 }

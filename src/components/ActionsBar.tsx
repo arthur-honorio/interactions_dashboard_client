@@ -22,12 +22,14 @@ type ActionsBarProps = {
   showMessages: boolean;
   setViewMessages: (state: boolean) => void;
   setMessageIndex: React.Dispatch<React.SetStateAction<number>>;
+  messageIndex: number;
 };
 
 export function ActionsBar({
   showMessages = false,
   setViewMessages,
   setMessageIndex,
+  messageIndex,
 }: ActionsBarProps) {
   const queryClient = new QueryClient();
   const { data }: UseQueryResult<any | Error, Error> = useQuery({
@@ -43,10 +45,16 @@ export function ActionsBar({
               <FontAwesomeIcon icon={faHome} />
             </button>
             <div className={style.separator} />
-            <button onClick={handlePreviousMessage}>
+            <button
+              onClick={handlePreviousMessage}
+              disabled={messageIndex == 0}
+            >
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
-            <button onClick={handleNextMessage}>
+            <button
+              onClick={handleNextMessage}
+              disabled={data?.length - 1 == messageIndex}
+            >
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
             <div className={style.separator} />
@@ -73,16 +81,10 @@ export function ActionsBar({
   }
 
   function handleNextMessage() {
-    setMessageIndex((state) => {
-      return (state += 1) % data.data.length;
-    });
+    setMessageIndex((state) => (state += 1));
   }
 
   function handlePreviousMessage() {
-    setMessageIndex((state) => {
-      if (data && state > 0) {
-        return (state -= 1);
-      } else return data.data.length - 1;
-    });
+    setMessageIndex((state) => (state -= 1));
   }
 }

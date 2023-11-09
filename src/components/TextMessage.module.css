@@ -7,17 +7,31 @@
 
   padding: 5rem;
 
-  border: solid white 2px;
   border-radius: 10px;
   font-weight: 500;
   color: var(--color-primary-dark);
+  background-color: white;
+  box-shadow: 5px 5px 30px rgb(7, 1, 46);
 }
 
 .whatsapp-icon {
   position: absolute;
-  left: -90px;
-  top: -90px;
-  width: 150px;
+  left: -40px;
+  top: -70px;
+  width: 110px;
+  transform: rotate(-5deg);
+}
+
+.user-name {
+  position: absolute;
+  top: -60px;
+  left: 80px;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: right;
+  margin: 0;
+  white-space: nowrap;
+  color: white;
 }
 
 .text-box p {
@@ -28,7 +42,7 @@
   word-wrap: normal;
   white-space: normal;
   margin: 0;
-  color: white;
+  color: var(--color-primary-dark);
   font-size: 2.6rem;
   letter-spacing: 0.4px;
   line-height: 3.5rem;
@@ -65,7 +79,7 @@
   width: 4rem;
   height: 4rem;
   transition: all 0.2s ease-in-out;
-  color: white;
+  color: var(--color-primary-dark);
 }
 
 .text-container button svg {
@@ -91,7 +105,19 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
+.video-container button {
+  position: absolute;
+  border-radius: 100px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 3;
+  top: 30px;
+  right: 30px;
+}
+
 .video-container video {
   height: 90vh;
+  max-width: 1000px;
   overflow: hidden;
 }

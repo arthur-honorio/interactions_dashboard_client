@@ -7,17 +7,18 @@ import style from "./App.module.css";
 
 function App() {
   const [viewMessages, setViewMessages] = useState(false);
-  const [, setMessageIndex] = useState(0);
+  const [messageIndex, setMessageIndex] = useState(0);
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className={style["app-container"]}>
-        <Dashboard viewMessages={viewMessages} />
+        <Dashboard viewMessages={viewMessages} messageIndex={messageIndex} />
         <ActionsBar
           showMessages={viewMessages}
           setViewMessages={setViewMessages}
           setMessageIndex={setMessageIndex}
+          messageIndex={messageIndex}
         />
         <div className={style.background} />
       </div>

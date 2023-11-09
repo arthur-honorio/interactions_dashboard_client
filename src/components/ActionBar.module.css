@@ -28,6 +28,12 @@ img.signature {
   justify-content: center;
   transition: all 0.2s ease-in-out;
 }
+.buttons-container > button:disabled,
+.buttons-container > button:disabled:hover {
+  cursor: not-allowed;
+  background-color: gray;
+  opacity: 0.5;
+}
 
 .buttons-container > button:hover {
   background-color: var(--color-primary);

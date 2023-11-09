@@ -1,7 +1,45 @@
-.user-image {
+.image-message-container {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  padding: 1rem;
+  padding-bottom: 3rem;
   border-radius: 10px;
-  min-width: 400px;
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
+  border: 2px white solid;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 5px 30px rgb(7, 1, 46);
+  transform: rotate(-3deg);
+  margin-right: 30px;
+}
+
+.user-image {
+  box-sizing: border-box;
+  border-radius: 8px;
+  max-width: 1000px;
+  height: 65vh;
+  object-fit: contain;
+  background-color: white;
+}
+
+.user-name {
+  position: absolute;
+  top: 0px;
+  right: 105%;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: right;
+  margin: 0;
+  white-space: nowrap;
+  transform: rotate(-90deg) translate(-40%, 150%);
+  color: white;
+}
+
+.whatsapp-icon {
+  position: absolute;
+  right: -100px;
+  bottom: 0px;
+  width: 120px;
+  transform: rotate(15deg);
 }
