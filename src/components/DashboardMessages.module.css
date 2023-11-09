@@ -1,0 +1,33 @@
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 0;
+}
+
+.message-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  max-width: 1000px;
+  max-height: 90%;
+
+  border-radius: 10px;
+}
+
+.user-info {
+  text-align: left;
+  position: absolute;
+  left: 90px;
+  top: -70px;
+}
+
+.user-name {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+}

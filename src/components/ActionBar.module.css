@@ -1,0 +1,42 @@
+img.signature {
+  position: absolute;
+  right: 7vh;
+  bottom: calc((15vh / 2) - 20px);
+  height: 40px;
+  filter: brightness(200) saturate(0);
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.buttons-container > button {
+  padding: 1rem;
+  font-size: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  border-radius: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttons-container > button:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttons-container .separator {
+  width: 3px;
+  height: 20px;
+  background-color: var(--color-primary-dark);
+}

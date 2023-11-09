@@ -1,0 +1,34 @@
+.app-container {
+  display: grid;
+  grid-template-rows: 85vh 15vh;
+  width: 100vw;
+  min-width: 1200px;
+  height: 100vh;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 110%;
+
+  background: url("../img/no-logo.webp");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateY(-50px);
+  mix-blend-mode: color;
+
+  z-index: -1;
+}
+
+.background ::after {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  background-color: aqua;
+}
+
+@media screen and (max-width: 1200px) {
+  .app-container {
+  }
+}

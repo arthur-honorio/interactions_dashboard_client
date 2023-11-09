@@ -1,0 +1,43 @@
+.dashboard-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+
+  position: relative;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 5rem;
+
+  border: 2px var(--text-background-color) solid;
+  border-radius: 10px;
+}
+
+.dashboard-title p {
+  font-size: 3.5rem;
+  margin: 0;
+  text-align: center;
+  color: white;
+}
+
+.whatsapp-logo {
+  width: 120px;
+  position: absolute;
+  bottom: -60px;
+}
+
+.info {
+  color: var(--color-whatsapp);
+  font-size: 5rem;
+  font-weight: 900;
+}
