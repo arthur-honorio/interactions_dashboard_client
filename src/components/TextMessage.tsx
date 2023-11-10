@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo, faClose } from "@fortawesome/free-solid-svg-icons";
@@ -28,6 +29,23 @@ export function TextMessage({
     };
   }, [showVideo]);
 
+  const portal = document.getElementById("portal-root");
+
+  const videoPortal =
+    showVideo && portal
+      ? ReactDOM.createPortal(
+          <div className={style["video-container"]}>
+            <button onClick={toogleShowVideo}>
+              {<FontAwesomeIcon icon={faClose} />}
+            </button>
+            <video autoPlay controls ref={videoRef}>
+              <source src={url} type="video/mp4" />
+            </video>
+          </div>,
+          portal
+        )
+      : null;
+
   return (
     <div className={style["text-container"]}>
       <div className={style["user-info"]}>
@@ -42,16 +60,7 @@ export function TextMessage({
           {<FontAwesomeIcon icon={faVideo} />}
         </button>
       )}
-      {showVideo && (
-        <div className={style["video-container"]}>
-          <button onClick={toogleShowVideo}>
-            {<FontAwesomeIcon icon={faClose} />}
-          </button>
-          <video autoPlay controls ref={videoRef}>
-            <source src={url} type="video/mp4" />
-          </video>
-        </div>
-      )}
+      {videoPortal}
     </div>
   );
 

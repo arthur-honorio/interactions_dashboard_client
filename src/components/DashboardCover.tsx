@@ -2,7 +2,11 @@ import WhatsappIcon from "../img/logo.png";
 
 import style from "./DashboardCover.module.css";
 
-export function DashboardCover() {
+export function DashboardCover({
+  setViewMessages,
+}: {
+  setViewMessages: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
     <div className={style["dashboard-container"]}>
       <div className={style["dashboard-content"]}>
@@ -13,11 +17,14 @@ export function DashboardCover() {
         <div className={style["info"]}>
           <span className="whatsapp-number">(82) 3512-0931</span>
         </div>
-        <img
-          alt="whatsapp icon"
-          className={style["whatsapp-logo"]}
-          src={WhatsappIcon}
-        />
+        <span></span>
+        <button onClick={() => setViewMessages(true)}>
+          <img
+            alt="whatsapp icon"
+            className={style["whatsapp-logo"]}
+            src={WhatsappIcon}
+          />
+        </button>
       </div>
     </div>
   );

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import "./style.css";
 
 import { ImageMessage } from "./ImageMessage";
 import { TextMessage } from "./TextMessage";
@@ -26,13 +25,7 @@ const responsive = {
   },
 };
 
-export function DashboardMessages({
-  messageIndex,
-  setMessageIndex,
-}: {
-  messageIndex: number;
-  setMessageIndex: React.Dispatch<React.SetStateAction<number>>;
-}) {
+export function DashboardMessages() {
   const [messages, setMessages] = useState<messagesProps>([]);
   const { isPending, error, data } = useQuery({
     queryKey: ["messages"],
@@ -47,19 +40,8 @@ export function DashboardMessages({
     setMessages(data);
   }
 
-  const afterChange = (
-    previousSlide: number,
-    { currentSlide }: { currentSlide: number }
-  ) => {
-    setMessageIndex(currentSlide);
-  };
-
   return (
-    <Carousel
-      responsive={responsive}
-      afterChange={afterChange}
-      itemClass={style["message-content"]}
-    >
+    <Carousel responsive={responsive} itemClass={style["message-content"]}>
       {messages.map((m) => (
         <div className={style["message-content"]} draggable={false}>
           {m.type === "photo" ? (

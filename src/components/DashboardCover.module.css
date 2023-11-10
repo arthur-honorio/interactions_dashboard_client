@@ -32,13 +32,24 @@
 }
 
 .whatsapp-logo {
-  width: 120px;
+  width: 160px;
   position: absolute;
-  bottom: -60px;
 }
 
 .info {
   color: var(--color-whatsapp);
   font-size: 5rem;
   font-weight: 900;
+}
+
+.dashboard-content button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  bottom: -30px;
+  cursor: pointer;
+  z-index: 10;
 }

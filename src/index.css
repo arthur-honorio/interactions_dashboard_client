@@ -12,3 +12,8 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
+
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left,
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
+  z-index: 0;
+}

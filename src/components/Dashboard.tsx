@@ -3,20 +3,13 @@ import { DashboardMessages } from "../components/DashboardMessages";
 
 export function Dashboard({
   viewMessages = false,
-  messageIndex = 0,
-  setMessageIndex,
+  setViewMessages,
 }: {
   viewMessages: boolean;
-  messageIndex: number;
-  setMessageIndex: React.Dispatch<React.SetStateAction<number>>;
+  setViewMessages: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  if (!viewMessages) {
-    return (
-      <DashboardMessages
-        messageIndex={messageIndex}
-        setMessageIndex={setMessageIndex}
-      />
-    );
+  if (viewMessages) {
+    return <DashboardMessages />;
   }
-  return <DashboardCover />;
+  return <DashboardCover setViewMessages={setViewMessages} />;
 }
