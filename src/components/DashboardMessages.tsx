@@ -34,7 +34,9 @@ export function DashboardMessages() {
   const { isPending, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
-      fetch("http://localhost:3001/api/messages").then((res) => res.json()),
+      fetch(
+        "postgres://interaction_dasboard_user:r2JudMt9cafFtycrfHzVNKzxeOdG6DFH@dpg-cl72bl2uuipc73f63nb0-a/interaction_dasboard/api/messages"
+      ).then((res) => res.json()),
   });
 
   if (error) return <div>Error loading messages</div>;
