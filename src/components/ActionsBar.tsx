@@ -45,19 +45,6 @@ export function ActionsBar({
               <FontAwesomeIcon icon={faHome} />
             </button>
             <div className={style.separator} />
-            <button
-              onClick={handlePreviousMessage}
-              disabled={messageIndex == 0}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-            <button
-              onClick={handleNextMessage}
-              disabled={data?.length - 1 == messageIndex}
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-            <div className={style.separator} />
             <button>
               <FontAwesomeIcon icon={faFilter} />
             </button>
@@ -78,13 +65,6 @@ export function ActionsBar({
 
   function toggleMessages() {
     setViewMessages(!showMessages);
-  }
-
-  function handleNextMessage() {
-    setMessageIndex((state) => (state += 1));
-  }
-
-  function handlePreviousMessage() {
-    setMessageIndex((state) => (state -= 1));
+    setMessageIndex(0);
   }
 }

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import "./style.css";
 
 import { ImageMessage } from "./ImageMessage";
 import { TextMessage } from "./TextMessage";
@@ -16,41 +19,56 @@ type message = {
 
 type messagesProps = message[];
 
-export function DashboardMessages({ messageIndex }: { messageIndex: number }) {
+const responsive = {
+  desktop: {
+    breakpoint: { max: 2000, min: 1500 },
+    items: 1,
+  },
+};
+
+export function DashboardMessages({
+  messageIndex,
+  setMessageIndex,
+}: {
+  messageIndex: number;
+  setMessageIndex: React.Dispatch<React.SetStateAction<number>>;
+}) {
   const [messages, setMessages] = useState<messagesProps>([]);
   const { isPending, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
       fetch("http://localhost:3001/api/messages").then((res) => res.json()),
   });
-  console.log(data);
-  if (error) {
-    console.error(error);
-  } else if (data?.length && messages?.length == 0) {
+
+  if (error) return <div>Error loading messages</div>;
+  if (isPending) return <div>Loading...</div>;
+
+  if (data?.length && messages?.length === 0) {
     setMessages(data);
   }
-  if (messages.length > 0) {
-    console.log(data[messageIndex]);
 
-    const { message, type, name, media_url } = messages[messageIndex];
+  const afterChange = (
+    previousSlide: number,
+    { currentSlide }: { currentSlide: number }
+  ) => {
+    setMessageIndex(currentSlide);
+  };
 
-    return (
-      <>
-        {isPending ? (
-          "Loading..."
-        ) : (
-          <div className={style["message-container"]}>
-            <div className={style["message-content"]}>
-              {type == "photo" ? (
-                <ImageMessage name={name} url={media_url} />
-              ) : (
-                <TextMessage name={name} message={message} url={media_url} />
-              )}
-            </div>
-          </div>
-        )}
-      </>
-    );
-  }
-  return <></>;
+  return (
+    <Carousel
+      responsive={responsive}
+      afterChange={afterChange}
+      itemClass={style["message-content"]}
+    >
+      {messages.map((m) => (
+        <div className={style["message-content"]} draggable={false}>
+          {m.type === "photo" ? (
+            <ImageMessage name={m.name} url={m.media_url} />
+          ) : (
+            <TextMessage name={m.name} message={m.message} url={m.media_url} />
+          )}
+        </div>
+      ))}
+    </Carousel>
+  );
 }

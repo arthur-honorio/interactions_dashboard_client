@@ -1,9 +1,42 @@
-.message-container {
+.message-outer-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem 0;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.message-container-left,
+.message-container-right,
+.message-container {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  width: 90vw;
+  height: 85vh;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateX(0);
+  z-index: -1;
+}
+
+.message-container {
+  opacity: 1;
+  transform: translateX(0) scaleX(100%);
+}
+
+.message-container-left {
+  transform: translateX(-50vh) scaleX(50%);
+  transition: all 0.3s ease-in-out;
+}
+
+.message-container-right {
+  transform: translateX(50vh) scaleX(50%);
+  transition: all 0.3s ease-in-out;
 }
 
 .message-content {
@@ -13,10 +46,11 @@
   justify-content: center;
 
   width: fit-content;
-  max-width: 1000px;
+  width: 1000px;
   max-height: 90%;
 
   border-radius: 10px;
+  pointer-events: none;
 }
 
 .user-info {

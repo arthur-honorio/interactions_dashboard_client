@@ -25,15 +25,15 @@
 
 .user-name {
   position: absolute;
-  top: 0px;
-  right: 105%;
+  right: calc(100% - 32.5vh + 40px);
   font-size: 3rem;
   font-weight: bold;
   text-align: right;
   margin: 0;
   white-space: nowrap;
-  transform: rotate(-90deg) translate(-40%, 150%);
+  transform: rotate(-90deg);
   color: white;
+  width: 65vh;
 }
 
 .whatsapp-icon {

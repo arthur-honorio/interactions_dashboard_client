@@ -13,7 +13,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className={style["app-container"]}>
-        <Dashboard viewMessages={viewMessages} messageIndex={messageIndex} />
+        <Dashboard
+          viewMessages={viewMessages}
+          messageIndex={messageIndex}
+          setMessageIndex={setMessageIndex}
+        />
         <ActionsBar
           showMessages={viewMessages}
           setViewMessages={setViewMessages}

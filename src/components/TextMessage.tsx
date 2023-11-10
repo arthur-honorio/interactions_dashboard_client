@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo, faClose } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,10 +15,17 @@ export function TextMessage({
   url?: string;
 }) {
   const [showVideo, setShowVideo] = useState<boolean>(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    window.addEventListener("keydown", handleCloseVideo);
-    return () => window.removeEventListener("keydown", handleCloseVideo);
+    if (showVideo) {
+      window.addEventListener("keydown", handleCloseOnEscVideo);
+      window.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      window.removeEventListener("keydown", handleCloseOnEscVideo);
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [showVideo]);
 
   return (
@@ -40,7 +47,7 @@ export function TextMessage({
           <button onClick={toogleShowVideo}>
             {<FontAwesomeIcon icon={faClose} />}
           </button>
-          <video autoPlay controls>
+          <video autoPlay controls ref={videoRef}>
             <source src={url} type="video/mp4" />
           </video>
         </div>
@@ -52,9 +59,14 @@ export function TextMessage({
     setShowVideo((state) => !state);
   }
 
-  function handleCloseVideo(this: Window, e: KeyboardEvent) {
+  function handleCloseOnEscVideo(this: Window, e: KeyboardEvent) {
     if (showVideo && e.key == "Escape") {
       setShowVideo(false);
     }
+  }
+
+  function handleClickOutside(this: Window, e: MouseEvent) {
+    if (videoRef.current && e.target && videoRef.current !== e.target)
+      setShowVideo(false);
   }
 }
