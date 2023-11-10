@@ -23,6 +23,10 @@ const responsive = {
     breakpoint: { max: 2000, min: 1500 },
     items: 1,
   },
+  desktopinho: {
+    breakpoint: { max: 1500, min: 900 },
+    items: 1,
+  },
 };
 
 export function DashboardMessages() {

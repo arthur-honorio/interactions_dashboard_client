@@ -14,7 +14,7 @@
   justify-content: center;
 
   width: fit-content;
-  width: 1000px;
+  min-width: 700px;
   max-height: 90%;
 
   border-radius: 10px;

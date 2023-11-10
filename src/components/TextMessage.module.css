@@ -126,3 +126,10 @@
   overflow: hidden;
   pointer-events: none;
 }
+
+@media screen and (max-width: 1500px) {
+  .text-box p {
+    font-size: 2.1rem;
+    line-height: 2.5rem;
+  }
+}
