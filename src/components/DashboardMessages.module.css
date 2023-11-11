@@ -126,3 +126,9 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 900px) {
+  .message-content {
+    max-height: 70%;
+  }
+}
