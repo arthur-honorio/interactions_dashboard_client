@@ -35,7 +35,7 @@ export function DashboardMessages() {
     queryKey: ["messages"],
     queryFn: () =>
       fetch(
-        "ep-delicate-wildflower-87115738-pooler.us-east-1.postgres.vercel-storage.com/api/messages"
+        "https://interactions-dashboard-server-5mki.vercel.app/api/messages"
       ).then((res) => res.json()),
   });
 
