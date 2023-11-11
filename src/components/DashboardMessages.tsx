@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import { ImageMessage } from "./ImageMessage";
 import { TextMessage } from "./TextMessage";
+import { LoadSpinner } from "./LoadSpinner";
 
 import style from "./DashboardMessages.module.css";
 
@@ -19,16 +20,8 @@ type message = {
 type messagesProps = message[];
 
 const responsive = {
-  desktop: {
-    breakpoint: { max: 2000, min: 1500 },
-    items: 1,
-  },
-  desktopinho: {
-    breakpoint: { max: 1500, min: 900 },
-    items: 1,
-  },
-  cell: {
-    breakpoint: { max: 900, min: 300 },
+  all: {
+    breakpoint: { max: 4000, min: 300 },
     items: 1,
   },
 };
@@ -44,28 +37,18 @@ export function DashboardMessages() {
   });
 
   if (error) return <div>Error loading messages</div>;
-  if (isPending)
-    return (
-      <div className={style["loader"]}>
-        <div className={style["lds-roller"]}>
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-          <div />
-        </div>
-      </div>
-    );
+  if (isPending) return <LoadSpinner />;
 
   if (data?.length && messages?.length === 0) {
     setMessages(data);
   }
 
   return (
-    <Carousel responsive={responsive} itemClass={style["message-content"]}>
+    <Carousel
+      arrows={window.innerWidth > 700}
+      responsive={responsive}
+      itemClass={style["message-container"]}
+    >
       {messages.map((m) => (
         <div className={style["message-content"]} draggable={false}>
           {m.type === "photo" ? (

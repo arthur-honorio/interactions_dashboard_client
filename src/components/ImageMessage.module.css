@@ -1,45 +1,106 @@
 .image-message-container {
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  background-color: white;
-  padding: 1rem;
-  padding-bottom: 3rem;
-  border-radius: 10px;
-  border: 2px white solid;
   display: flex;
   align-items: center;
-  box-shadow: 5px 5px 30px rgb(7, 1, 46);
-  transform: rotate(-3deg);
+
+  padding: 1rem;
+  padding-bottom: 3rem;
   margin-right: 30px;
+
+  transform: rotate(-3deg);
+
+  background-color: white;
+  border-radius: var(--bord-rad);
+  box-shadow: 5px 5px 30px rgb(7, 1, 46);
+}
+
+.image-container {
+  max-width: 65vw;
+  max-height: 65vh;
+  width: fit-content;
+  height: fit-content;
+
+  overflow: hidden;
 }
 
 .user-image {
   box-sizing: border-box;
-  border-radius: 8px;
-  max-width: 1000px;
-  height: 65vh;
-  object-fit: contain;
+  border-radius: 0.8rem;
   background-color: white;
+  max-width: 65vw;
+  max-height: 65vh;
+  object-fit: contain;
 }
 
 .user-name {
-  position: absolute;
-  right: calc(100% - 32.5vh + 40px);
   font-size: 3rem;
   font-weight: bold;
   text-align: right;
-  margin: 0;
   white-space: nowrap;
   transform: rotate(-90deg);
   color: white;
   width: 65vh;
 }
 
+.user-name {
+  position: absolute;
+  right: calc(100% - 32.5vh + 40px);
+  margin: 0;
+
+  width: 65vh;
+
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: right;
+  white-space: nowrap;
+  transform: rotate(-90deg);
+  color: white;
+}
+
 .whatsapp-icon {
   position: absolute;
   right: -100px;
   bottom: 0px;
-  width: 120px;
+  width: 8rem;
   transform: rotate(15deg);
+}
+
+@media screen and (max-width: 1000px) {
+  .image-container {
+    max-width: 55vw;
+    max-height: 55vh;
+  }
+
+  .user-image {
+    max-width: 55vw;
+    max-height: 55vh;
+  }
+
+  .user-name {
+    transform: rotate(0deg);
+    left: 0;
+    bottom: -4rem;
+    width: fit-content;
+  }
+
+  .whatsapp-icon {
+    right: -2rem;
+    bottom: -6rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .image-container {
+    max-width: 65vw;
+    max-height: 65vh;
+  }
+
+  .user-image {
+    max-width: 65vw;
+    max-height: 65vh;
+  }
+
+  .whatsapp-icon {
+    bottom: -4rem;
+    width: 6rem;
+  }
 }

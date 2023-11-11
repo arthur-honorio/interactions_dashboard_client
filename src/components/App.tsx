@@ -10,8 +10,6 @@ function App() {
   const [viewMessages, setViewMessages] = useState(false);
   const queryClient = new QueryClient();
 
-  console.log(viewMessages);
-
   return (
     <QueryClientProvider client={queryClient}>
       <div className={style["app-container"]}>
@@ -23,8 +21,8 @@ function App() {
           showMessages={viewMessages}
           setViewMessages={setViewMessages}
         />
-        <div className={style.background} />
       </div>
+      <div className={style.background} />
     </QueryClientProvider>
   );
 }

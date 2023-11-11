@@ -7,20 +7,22 @@
 }
 
 .dashboard-content {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
 
-  position: relative;
-
   width: fit-content;
+  min-width: 50rem;
+  max-width: 80vw;
   height: fit-content;
   padding: 5rem;
 
   background-color: white;
-  border-radius: 10px;
+  border-radius: var(--bord-rad);
   box-shadow: 5px 5px 30px rgb(7, 1, 46);
 }
 
@@ -31,15 +33,19 @@
   color: var(--color-primary-dark);
 }
 
-.whatsapp-logo {
-  width: 160px;
-  position: absolute;
+.ddd {
+  font-size: 2rem;
 }
 
-.info {
-  color: var(--color-whatsapp);
-  font-size: 5rem;
+.whatsapp-number {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 4.5rem;
+  text-align: center;
   font-weight: 900;
+  color: var(--color-whatsapp);
 }
 
 .dashboard-content button {
@@ -49,27 +55,44 @@
   justify-content: center;
   width: fit-content;
   height: fit-content;
-  bottom: -30px;
+  bottom: -2rem;
   cursor: pointer;
   z-index: 10;
 }
 
-@media screen and (max-width: 1500px) {
+.whatsapp-logo {
+  width: 10rem;
+  position: absolute;
+}
+
+@media screen and (max-width: 1000px) {
   .dashboard-content {
-    gap: 1rem;
+    width: 100%;
+    min-width: 30rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .dashboard-content {
+    min-width: 20rem;
+    max-width: 70vw;
     padding: 3rem;
   }
+
   .dashboard-title p {
-    font-size: 2.5rem;
-  }
-  .whatsapp-logo {
-    width: 120px;
-  }
-  .info {
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
-  .dashboard-content button {
-    bottom: -20px;
+  .ddd {
+    font-size: 1rem;
+  }
+
+  .whatsapp-number {
+    gap: 0.5rem;
+    font-size: 2.2rem;
+  }
+
+  .whatsapp-logo {
+    width: 8rem;
   }
 }

@@ -12,7 +12,9 @@ export function ImageMessage({
     <div className={style["image-message-container"]}>
       <img alt="" className={style["whatsapp-icon"]} src={whatsappIcon} />
       <p className={style["user-name"]}>{name}</p>
-      <img alt="img" className={style["user-image"]} src={url} />
+      <div className={style["image-container"]}>
+        <img alt="img" className={style["user-image"]} src={url} />
+      </div>
     </div>
   );
 }

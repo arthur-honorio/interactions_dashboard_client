@@ -7,7 +7,7 @@
 
   padding: 5rem;
 
-  border-radius: 10px;
+  border-radius: var(--bord-rad);
   font-weight: 500;
   color: var(--color-primary-dark);
   background-color: white;
@@ -15,65 +15,10 @@
   pointer-events: none;
 }
 
-.whatsapp-icon {
-  position: absolute;
-  left: -40px;
-  top: -70px;
-  width: 110px;
-  transform: rotate(-5deg);
-}
-
-.user-name {
-  position: absolute;
-  top: -65px;
-  left: 90px;
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: right;
-  margin: 0;
-  white-space: nowrap;
-  color: white;
-}
-
-.text-box p {
-  display: inline-block;
-  max-width: 100%;
-  overflow-x: hidden;
-  word-break: normal;
-  word-wrap: normal;
-  white-space: normal;
-  margin: 0;
-  color: var(--color-primary-dark);
-  font-size: 2.6rem;
-  letter-spacing: 0.4px;
-  line-height: 3.5rem;
-  text-align: center;
-  user-select: none;
-}
-
-.text-box {
-  display: inline-block;
-  max-width: 800px;
-  max-height: 230px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.text-box::-webkit-scrollbar,
-.text-box::-webkit-scrollbar-thumb {
-  width: 5px;
-  background-color: var(--color-primary-dark);
-  border-radius: 8px;
-}
-
-.text-box::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary);
-}
-
 .text-container > button {
   position: absolute;
-  right: 40px;
-  bottom: 20px;
+  right: 2rem;
+  bottom: 2rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -96,40 +41,25 @@
   transition: all 0.2s ease-in-out;
 }
 
-.video-container {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
-  pointer-events: none;
-}
-
-.video-container > button {
-  position: absolute;
-  border-radius: 100px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  top: 30px;
-  right: 30px;
-  pointer-events: none;
-  font-size: 1rem;
-}
-
-.video-container video {
-  height: 90vh;
-  max-width: 1000px;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1000px) {
   .text-box p {
     font-size: 2.1rem;
     line-height: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .text-box p {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .text-container {
+    padding: 6rem 2rem;
+  }
+
+  .text-container > button {
+    right: 1rem;
+    bottom: 1rem;
   }
 }

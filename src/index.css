@@ -3,9 +3,10 @@
   --color-whatsapp: rgb(3, 211, 48);
   --color-primary-dark: #03043d;
   --text-background-color: rgba(255, 255, 255, 0.9);
+  --bord-rad: 1rem;
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,4 +17,20 @@ body {
 .react-multiple-carousel__arrow.react-multiple-carousel__arrow--left,
 .react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
   z-index: 0;
+}
+
+[class*="message-content"]:has(div[class*="TextMessage"]) {
+  margin-top: 5.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 12px;
+  }
 }
