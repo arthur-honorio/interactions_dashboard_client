@@ -42,8 +42,13 @@ export function Video({
   }
 
   function handleClickOutside(e: MouseEvent) {
-      if (videoRef.current && e.target) {
-        const rect = videoRef.current.getBoundingClientRect();
+      if (videoRef?.current && e.target) {
+        const rect as {
+          left: number
+          right: number
+          bottom: number
+          top: number
+        } = videoRef.current.getBoundingClientRect();
         if (
           e.clientX < rect.left ||
           e.clientX > rect.right ||
