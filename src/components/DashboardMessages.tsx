@@ -40,7 +40,21 @@ export function DashboardMessages() {
   });
 
   if (error) return <div>Error loading messages</div>;
-  if (isPending) return <div>Loading...</div>;
+  if (isPending)
+    return (
+      <div className={style["loader"]}>
+        <div className={style["lds-roller"]}>
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
+          <div />
+        </div>
+      </div>
+    );
 
   if (data?.length && messages?.length === 0) {
     setMessages(data);
