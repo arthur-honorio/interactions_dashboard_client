@@ -5,7 +5,7 @@
   justify-content: center;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: rgba(0, 0, 0, 0.9);
   pointer-events: none;
 }
@@ -23,7 +23,7 @@
 }
 
 .video-container video {
-  height: 90vh;
+  height: 90dvh;
   max-width: 1000px;
   overflow: hidden;
   pointer-events: none;

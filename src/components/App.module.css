@@ -1,6 +1,6 @@
 .app-container {
   display: grid;
-  grid-template-rows: 85vh 15vh;
+  grid-template-rows: 85dvh 15dvh;
   overflow: hidden;
 }
 
@@ -25,6 +25,6 @@
 
 @media screen and (max-width: 1000px) {
   .app-container {
-    grid-template-rows: 80vh 20vh;
+    grid-template-rows: 80dvh 20dvh;
   }
 }

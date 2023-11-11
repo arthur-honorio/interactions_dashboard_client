@@ -43,7 +43,7 @@
   }
 
   .text-box {
-    max-height: 40vh;
+    max-height: 40dvh;
   }
 }
 
@@ -54,6 +54,6 @@
   }
 
   .text-box {
-    max-height: 42vh;
+    max-height: 42dvh;
   }
 }

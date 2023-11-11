@@ -8,8 +8,8 @@
 
 img.signature {
   position: absolute;
-  right: 7vh;
-  bottom: calc((15vh / 2) - 20px);
+  right: 7dvh;
+  bottom: calc((15dvh / 2) - 20px);
   height: 40px;
   filter: brightness(200) saturate(0);
   z-index: -1;

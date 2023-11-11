@@ -15,7 +15,7 @@
 
 .image-container {
   max-width: 65vw;
-  max-height: 65vh;
+  max-height: 65dvh;
   width: fit-content;
   height: fit-content;
 
@@ -27,7 +27,7 @@
   border-radius: 0.8rem;
   background-color: white;
   max-width: 65vw;
-  max-height: 65vh;
+  max-height: 65dvh;
   object-fit: contain;
 }
 
@@ -38,15 +38,15 @@
   white-space: nowrap;
   transform: rotate(-90deg);
   color: white;
-  width: 65vh;
+  width: 65dvh;
 }
 
 .user-name {
   position: absolute;
-  right: calc(100% - 32.5vh + 40px);
+  right: calc(100% - 32.5dvh + 40px);
   margin: 0;
 
-  width: 65vh;
+  width: 65dvh;
 
   font-size: 3rem;
   font-weight: bold;
@@ -67,12 +67,12 @@
 @media screen and (max-width: 1000px) {
   .image-container {
     max-width: 55vw;
-    max-height: 55vh;
+    max-height: 55dvh;
   }
 
   .user-image {
     max-width: 55vw;
-    max-height: 55vh;
+    max-height: 55dvh;
   }
 
   .user-name {
@@ -91,12 +91,12 @@
 @media screen and (max-width: 700px) {
   .image-container {
     max-width: 65vw;
-    max-height: 65vh;
+    max-height: 65dvh;
   }
 
   .user-image {
     max-width: 65vw;
-    max-height: 65vh;
+    max-height: 65dvh;
   }
 
   .whatsapp-icon {
