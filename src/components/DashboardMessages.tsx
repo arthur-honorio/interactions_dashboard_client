@@ -27,6 +27,10 @@ const responsive = {
     breakpoint: { max: 1500, min: 900 },
     items: 1,
   },
+  cell: {
+    breakpoint: { max: 900, min: 300 },
+    items: 1,
+  },
 };
 
 export function DashboardMessages() {
