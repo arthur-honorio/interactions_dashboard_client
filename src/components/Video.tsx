@@ -41,8 +41,17 @@ export function Video({
     }
   }
 
-  function handleClickOutside(this: Window, e: MouseEvent) {
-    if (videoRef.current && e.target && videoRef.current !== e.target)
-      toogleShowVideo();
-  }
+  function handleClickOutside(e: MouseEvent) {
+      if (videoRef.current && e.target) {
+        const rect = videoRef.current.getBoundingClientRect();
+        if (
+          e.clientX < rect.left ||
+          e.clientX > rect.right ||
+          e.clientY < rect.top ||
+          e.clientY > rect.bottom
+        ) {
+          toogleShowVideo();
+        }
+      }
+    }
 }
