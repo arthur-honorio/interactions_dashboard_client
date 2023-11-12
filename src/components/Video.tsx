@@ -38,7 +38,9 @@ export function Video({
 
   return (
     <div className={style["video-container"]}>
-      <button>{<FontAwesomeIcon icon={faClose} />}</button>
+      <button onClick={toggleShowVideo}>
+        {<FontAwesomeIcon icon={faClose} />}
+      </button>
       <video autoPlay controls ref={videoRef}>
         <source src={url} type="video/mp4" />
       </video>
