@@ -26,6 +26,7 @@ export function Video({
       if (videoRef.current && e.target && videoRef.current !== e.target)
         toggleShowVideo();
     }
+
     if (showVideo) {
       window.addEventListener("keydown", handleCloseOnEscVideo);
       window.addEventListener("mousedown", handleClickOutside);
