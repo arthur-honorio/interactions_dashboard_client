@@ -25,7 +25,7 @@ export function MessageContent({
           <Video
             url={url}
             showVideo={showVideo}
-            toogleShowVideo={toogleShowVideo}
+            toggleShowVideo={toggleShowVideo}
           />,
           portal
         )
@@ -37,7 +37,7 @@ export function MessageContent({
         <p>{message}</p>
       </div>
       {url && (
-        <button onClick={toogleShowVideo}>
+        <button onClick={toggleShowVideo}>
           {<FontAwesomeIcon icon={faVideo} />}
         </button>
       )}
@@ -45,7 +45,7 @@ export function MessageContent({
     </>
   );
 
-  function toogleShowVideo() {
+  function toggleShowVideo() {
     setShowVideo((state) => !state);
   }
 }

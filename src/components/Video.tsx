@@ -1,51 +1,47 @@
 import { useEffect, useRef } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+
 import style from "./Video.module.css";
 
 export function Video({
   showVideo,
   url,
-  toggleShowVideo, // Corrigi o nome da função para "toggleShowVideo"
+  toggleShowVideo,
 }: {
   showVideo: boolean;
   url: string | undefined;
   toggleShowVideo: () => void;
 }) {
   const videoRef = useRef(null);
-
   useEffect(() => {
-    const handleCloseOnEscVideo = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+    function handleCloseOnEscVideo(this: Window, e: KeyboardEvent) {
+      if (showVideo && e.key == "Escape") {
         toggleShowVideo();
       }
-    };
-
-    if (showVideo) {
-      window.addEventListener("keydown", handleCloseOnEscVideo);
     }
 
+    function handleClickOutside(this: Window, e: MouseEvent) {
+      if (videoRef.current && e.target && videoRef.current !== e.target)
+        toggleShowVideo();
+    }
+    if (showVideo) {
+      window.addEventListener("keydown", handleCloseOnEscVideo);
+      window.addEventListener("mousedown", handleClickOutside);
+    }
     return () => {
       window.removeEventListener("keydown", handleCloseOnEscVideo);
+      window.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showVideo, toggleShowVideo]);
-
-  // Overlay JSX
-  const overlay = showVideo ? (
-    <div className={style["overlay"]} onClick={toggleShowVideo} />
-  ) : null;
+  }, [showVideo]);
 
   return (
-    <>
-      {overlay}
-      <div className={`${style["video-container"]} ${showVideo ? style["active"] : ""}`} ref={videoRef}>
-        <button onClick={toggleShowVideo}>
-          <FontAwesomeIcon icon={faClose} />
-        </button>
-        <video autoPlay controls>
-          <source src={url} type="video/mp4" />
-        </video>
-      </div>
-    </>
+    <div className={style["video-container"]}>
+      <button>{<FontAwesomeIcon icon={faClose} />}</button>
+      <video autoPlay controls ref={videoRef}>
+        <source src={url} type="video/mp4" />
+      </video>
+    </div>
   );
 }
